@@ -1,0 +1,11 @@
+﻿@model Activity_2_RegisterAndLoginApp.Models.UserModel
+
+<div>
+    <h4>You have failed me for the last time</h4>
+    <hr />
+    <p>Well, @Model.UserName, it appears that @Model.Password is not going to get you anywhere in this application.</p>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
