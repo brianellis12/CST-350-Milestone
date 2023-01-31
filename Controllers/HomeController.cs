@@ -1,8 +1,8 @@
-﻿using Activity_2_RegisterAndLoginApp.Models;
+﻿using Milestone.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Activity_2_RegisterAndLoginApp.Controllers
+namespace Milestone.Controllers
 {
     public class HomeController : Controller
     {

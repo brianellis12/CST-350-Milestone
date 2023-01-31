@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "Activity_2_RegisterAndLoginApp": {
+    "Milestone": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

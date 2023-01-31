@@ -1,4 +1,4 @@
-﻿namespace Activity_2_RegisterAndLoginApp.Models
+﻿namespace Milestone.Models
 {
     public class UserModel
     {

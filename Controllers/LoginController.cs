@@ -1,8 +1,8 @@
-﻿using Activity_2_RegisterAndLoginApp.Models;
-using Activity_2_RegisterAndLoginApp.Services;
+﻿using Milestone.Models;
+using Milestone.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Activity_2_RegisterAndLoginApp.Controllers
+namespace Milestone.Controllers
 {
     public class LoginController : Controller
     {

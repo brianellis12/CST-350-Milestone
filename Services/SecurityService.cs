@@ -1,6 +1,6 @@
-﻿using Activity_2_RegisterAndLoginApp.Models;
+﻿using Milestone.Models;
 
-namespace Activity_2_RegisterAndLoginApp.Services
+namespace Milestone.Services
 {
     public class SecurityService
     {

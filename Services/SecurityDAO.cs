@@ -1,7 +1,7 @@
-﻿using Activity_2_RegisterAndLoginApp.Models;
+﻿using Milestone.Models;
 using System.Data.SqlClient;
 
-namespace Activity_2_RegisterAndLoginApp.Services
+namespace Milestone.Services
 {
     public class SecurityDAO
     {

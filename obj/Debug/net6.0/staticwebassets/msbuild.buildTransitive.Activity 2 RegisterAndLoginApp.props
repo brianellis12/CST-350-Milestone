@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Activity 2 RegisterAndLoginApp.props" />
+</Project>
