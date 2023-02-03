@@ -9,6 +9,11 @@ namespace Milestone.Services
         {
             return securityDAO.FindUserByNameAndPassword(user);
         }
+
+        public bool AddUser(UserModel user)
+        {
+            return securityDAO.AddUser(user);
+        }
         
     
     }

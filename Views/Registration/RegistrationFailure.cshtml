@@ -1,0 +1,11 @@
+﻿@model Milestone.Models.UserModel
+
+<div>
+    <h4>Failed to Register User</h4>
+    <hr />
+    <p>An application error is keeping us from adding your credentials to the database, please try again later.</p>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
