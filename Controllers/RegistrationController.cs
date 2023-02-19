@@ -17,7 +17,7 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 
             if (securityService.AddUser(user))
             {
-                return View("RegistrationSuccess", user);
+                return View("/Views/Game/Index.cshtml");
             }
             else
             {

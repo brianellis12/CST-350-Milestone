@@ -17,7 +17,7 @@ namespace Milestone.Controllers
 
             if(securityService.IsValid(user))
             {
-                return View("LoginSuccess", user);
+                return View("/Views/Game/Index.cshtml");
             }
             else
             {

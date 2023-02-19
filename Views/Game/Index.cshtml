@@ -1,0 +1,35 @@
+﻿@model Milestone.Models.Board
+<style>
+	button {
+		border: none;
+	}
+</style>
+<table>
+	@for (var i = 0; i < Model.Size; i++)
+	{
+		<tr>
+			@for (var j = 0; j < Model.Size; j++)
+			{
+			<td>
+				<form>
+					<div>
+						<input name="col" value="@Model.Grid[i,j].Row" hidden>
+						<input name="row" value="@Model.Grid[i,j].Col" hidden>
+						<button type="submit" asp-controller="Game" asp-action="leftClick">
+								@if(Model.Grid[i,j].IsVisited == true)
+								{
+									<img src="/img/visitedSquare.png" width="70px" height="70px">
+								} else
+								{
+									<img src="/img/square.jpeg" width="70px" height="70px">
+								}
+								
+						</button>
+					</div>
+				</form>
+					
+			</td>
+		}
+		</tr>
+	}
+</table>
