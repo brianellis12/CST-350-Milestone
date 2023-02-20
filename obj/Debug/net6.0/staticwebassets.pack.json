@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\img\\square.jpeg",
+      "PackagePath": "staticwebassets\\img\\square.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\img\\visitedSquare.png",
+      "PackagePath": "staticwebassets\\img\\visitedSquare.png"
+    },
+    {
       "Id": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

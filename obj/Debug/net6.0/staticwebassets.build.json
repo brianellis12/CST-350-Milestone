@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6I009KfSRXnHdwfP1wQ9hGQiLTJXo5q4+EZMPo4qDLg=",
+  "Hash": "9860sQTKCA4cuWb966Q2ScfpQsAt6pZpOKiUkBOdXco=",
   "Source": "Milestone",
   "BasePath": "_content/Milestone",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\img\\square.jpeg",
+      "SourceId": "Milestone",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\",
+      "BasePath": "_content/Milestone",
+      "RelativePath": "img/square.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\square.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\img\\visitedSquare.png",
+      "SourceId": "Milestone",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\",
+      "BasePath": "_content/Milestone",
+      "RelativePath": "img/visitedSquare.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\visitedSquare.png"
     },
     {
       "Identity": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\wwwroot\\js\\site.js",

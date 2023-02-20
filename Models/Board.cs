@@ -176,7 +176,7 @@ namespace Milestone.Models
         internal void rightClick(int rowGuess, int colGuess)
         {
             Grid[rowGuess, colGuess].IsFlagged = !(Grid[rowGuess, colGuess].IsFlagged);
-              }
+        }
 
         internal void leftClick(int rowGuess, int colGuess)
         {

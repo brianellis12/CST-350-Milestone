@@ -6,21 +6,23 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 {
     public class GameController : Controller
     {
-        public static Board gameboard = new Board(8, .1f);
+        public static Board gameboard = new Board(10, .12f);
         public IActionResult Index()
         {
             gameboard.setupBombs();
+            gameboard.CalcLiveNeighbors();
             return View("Index", gameboard);
         }
 
         public IActionResult leftClick(int col, int row)
         {
-            if (gameboard.Grid[col,row].IsLive == true)
+            if (gameboard.checkForLose())
             {
-                gameboard.checkForLose();
-            } else
+               return View("EndGame");
+           
+            } 
+            else
             {
-                gameboard.Grid[col, row].IsVisited = true;
                 gameboard.leftClick(col, row);
             }
             
