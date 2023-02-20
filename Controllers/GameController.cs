@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Activity_2_RegisterAndLoginApp.Services;
+using Microsoft.AspNetCore.Mvc;
 using Milestone.Models;
 using System.Security.Cryptography.X509Certificates;
 
@@ -7,29 +8,31 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
     public class GameController : Controller
     {
         public static Board gameboard;
+        public static GameBoardService boardService;
         public IActionResult Index()
         {
-            gameboard = new Board(10, .01f);
-            gameboard.setupBombs();
-            gameboard.CalcLiveNeighbors();
+            gameboard = new Board(10, .21f);
+            boardService = new GameBoardService(gameboard);
+            boardService.setupBombs();
+            boardService.CalcLiveNeighbors();
             return View("Index", gameboard);
         }
 
         public IActionResult leftClick(int col, int row)
         {
-            if (gameboard.checkForLose())
+            if (boardService.checkForLose())
             {
                
                return View("EndGame");
            
             } 
-            else if (gameboard.checkForWin())
+            else if (boardService.checkForWin())
             {
                 return View("Victory");
             }
             else
             {
-                gameboard.leftClick(col, row);
+                boardService.leftClick(col, row);
             }
             
             return View("Index", gameboard);
