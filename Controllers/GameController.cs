@@ -6,9 +6,10 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 {
     public class GameController : Controller
     {
-        public static Board gameboard = new Board(10, .12f);
+        public static Board gameboard;
         public IActionResult Index()
         {
+            gameboard = new Board(10, .12f);
             gameboard.setupBombs();
             gameboard.CalcLiveNeighbors();
             return View("Index", gameboard);
@@ -18,6 +19,7 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
         {
             if (gameboard.checkForLose())
             {
+               
                return View("EndGame");
            
             } 
