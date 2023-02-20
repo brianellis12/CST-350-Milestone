@@ -9,7 +9,7 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
         public static Board gameboard;
         public IActionResult Index()
         {
-            gameboard = new Board(10, .12f);
+            gameboard = new Board(10, .01f);
             gameboard.setupBombs();
             gameboard.CalcLiveNeighbors();
             return View("Index", gameboard);
@@ -23,6 +23,10 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
                return View("EndGame");
            
             } 
+            else if (gameboard.checkForWin())
+            {
+                return View("Victory");
+            }
             else
             {
                 gameboard.leftClick(col, row);
