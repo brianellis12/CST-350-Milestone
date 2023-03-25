@@ -9348,11 +9348,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\Milestone.csproj",
+      "projectUniqueName": "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\Milestone.csproj",
       "projectName": "Milestone",
-      "projectPath": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\Milestone.csproj",
+      "projectPath": "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\Milestone.csproj",
       "packagesPath": "C:\\Users\\baseb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\baseb\\source\\repos\\CST-350-Milestone\\obj\\",
+      "outputPath": "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\baseb\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9409,7 +9409,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

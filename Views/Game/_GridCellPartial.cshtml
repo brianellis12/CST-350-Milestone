@@ -1,0 +1,12 @@
+﻿@model Cell
+<button class="game-cell" type="submit" asp-controller="Game" asp-action="leftClick" data-col="@Model.Row" data-row="@Model.Col">
+	@if (Model.IsVisited == true)
+	{
+		<img src="/img/visitedSquare.png" width="70px" height="70px">
+	}
+	else
+	{
+		<img src="/img/square.jpeg" width="70px" height="70px">
+	}
+
+</button>
