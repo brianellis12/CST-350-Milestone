@@ -13,8 +13,6 @@
                 var row = $(this).data("row");
                 console.log("cell at col and row " + col + " " + row + " was left clicked");
 
-                checkForWin();
-
                 doCellUpdate(col, row, '/game/leftClick');
                 break;
             case 2:
@@ -41,8 +39,7 @@ function doCellUpdate(col, row, urlString) {
             "row": row
         },
         success: function (data) {
-            console.log(data);
-            $("#" + col + row).html(data);
+            $("#board").html(data);
         }
     });
 };
@@ -53,9 +50,7 @@ function checkForWin() {
         method: 'POST',
         url: 'game/ShowWinOrLossMessage',
         success: function (data) {
-            console.log(data);
-
-            window.location.href = data;
+            
         }
     });
 };
@@ -70,8 +65,7 @@ function doFlag(col, row) {
             "row": row
         },
         success: function (data) {
-            console.log(data);
-            $("#" + col + row).html(data);
+            $("#board").html(data);
         }
      })
 }

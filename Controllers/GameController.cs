@@ -18,8 +18,11 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
             return View("Index", gameboard);
         }
 
-		public IActionResult ShowWinOrLossMessage()
+		public IActionResult leftClick(int col, int row)
 		{
+
+
+			boardService.leftClick(col, row);
 			if (boardService.checkForLose())
 			{
 
@@ -32,18 +35,10 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 			}
 			else
 			{
-				return View("Index", gameboard);
+
+				var cell = gameboard.Grid[col, row];
+				return PartialView("_GridCellPartial", gameboard);
 			}
-		}
-		public IActionResult leftClick(int col, int row)
-		{
-
-
-			boardService.leftClick(col, row);
-
-
-			var cell = gameboard.Grid[col, row];
-			return PartialView("_GridCellPartial", cell);
 		}	
 
 		public IActionResult rightClick(int col, int row)
@@ -52,7 +47,7 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 
 
 			var cell = gameboard.Grid[col, row];
-			return PartialView("_GridCellPartial", cell);
+			return PartialView("_GridCellPartial", gameboard);
 		}
 	}
 }

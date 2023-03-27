@@ -1,18 +1,35 @@
-﻿@model Cell
-<button class="game-cell" type="submit" asp-controller="Game" asp-action="leftClick" data-col="@Model.Row" data-row="@Model.Col">
-	@if (Model.IsVisited == true)
+﻿@model Milestone.Models.Board
+<table>
+	@for (var i = 0; i < Model.Size; i++)
 	{
-		<img src="/img/visitedSquare.png" width="70px" height="70px">
+		<tr>
+			@for (var j = 0; j < Model.Size; j++)
+			{
+				<td>
+					<form>
+						<input name="col" value="@Model.Grid[i,j].Row" hidden>
+						<input name="row" value="@Model.Grid[i,j].Col" hidden>
+						<div class="oneCell" id=@i@j>
+							<button class="game-cell" type="submit" asp-controller="Game" asp-action="leftClick" data-col="@Model.Grid[i,j].Row" data-row="@Model.Grid[i,j].Col">
+								@if (Model.Grid[i, j].IsVisited == true)
+								{
+									<img src="/img/visitedSquare.png" width="70px" height="70px">
+								}
+								else if (Model.Grid[i, j].IsFlagged == true)
+								{
+									<img src="/img/flag.jpg" width="70px" height="70px">
+								}
+								else
+								{
+									<img src="/img/square.jpeg" width="70px" height="70px">
+								}
+
+							</button>
+						</div>
+					</form>
+
+				</td>
+			}
+		</tr>
 	}
-	else
-	{
-		@if (Model.IsFlagged == true)
-		{
-			<img src="~/img/flag.jpg" width="70px" height="70px">
-		}
-		else
-		{
-			<img src="/img/square.jpeg" width="70px" height="70px">
-		}
-	}
-</button>
+</table>
