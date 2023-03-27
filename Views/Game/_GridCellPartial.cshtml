@@ -6,7 +6,13 @@
 	}
 	else
 	{
-		<img src="/img/square.jpeg" width="70px" height="70px">
+		@if (Model.IsFlagged == true)
+		{
+			<img src="~/img/flag.jpg" width="70px" height="70px">
+		}
+		else
+		{
+			<img src="/img/square.jpeg" width="70px" height="70px">
+		}
 	}
-
 </button>

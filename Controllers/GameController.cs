@@ -18,31 +18,41 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
             return View("Index", gameboard);
         }
 
-        public IActionResult leftClick(int col, int row)
-        {
-            if (boardService.checkForLose())
-            {
-               
-               return View("EndGame");
-           
-            } 
-            else if (boardService.checkForWin())
-            {
-                return View("Victory");
-            }
-            else
-            {
-                boardService.leftClick(col, row);
-            }
-            
-            return View("Index", gameboard);
-        }
+		public IActionResult ShowWinOrLossMessage()
+		{
+			if (boardService.checkForLose())
+			{
 
-        public IActionResult rightClick(int col, int row)
-        {
-            boardService.rightClick(col, row);
+				return View("EndGame");
 
-            return View("Index", gameboard);
-        }
-    }
+			}
+			else if (boardService.checkForWin())
+			{
+				return View("Victory");
+			}
+			else
+			{
+				return View("Index", gameboard);
+			}
+		}
+		public IActionResult leftClick(int col, int row)
+		{
+
+
+			boardService.leftClick(col, row);
+
+
+			var cell = gameboard.Grid[col, row];
+			return PartialView("_GridCellPartial", cell);
+		}	
+
+		public IActionResult rightClick(int col, int row)
+		{
+			boardService.rightClick(col, row);
+
+
+			var cell = gameboard.Grid[col, row];
+			return PartialView("_GridCellPartial", cell);
+		}
+	}
 }
