@@ -1,10 +1,11 @@
 ﻿@model Milestone.Models.Board
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="crossorigin="anonymous"></script>
+<script src="/js/Game.js"></script>
 <style>
 	button {
 		border: none;
 	}
 </style>
-<p>Current Time: @DateTime.Now</p>
 <table>
 	@for (var i = 0; i < Model.Size; i++)
 	{
@@ -13,14 +14,18 @@
 			{
 			<td>
 				<form>
+					<div>
 						<input name="col" value="@Model.Grid[i,j].Row" hidden>
 						<input name="row" value="@Model.Grid[i,j].Col" hidden>
-						<div class="oneCell" id=@i@j>
-							<button class="game-cell" type="submit" asp-controller="Game" asp-action="leftClick" data-col="@Model.Grid[i,j].Row" data-row="@Model.Grid[i,j].Col">
+						<button type="submit" class="cellButton" asp-controller="Game" asp-action="leftClick">
 								@if(Model.Grid[i,j].IsVisited == true)
 								{
 									<img src="/img/visitedSquare.png" width="70px" height="70px">
-								} else
+								}else if(Model.Grid[i,j].IsFlagged == true) 
+								{
+									<img src="/img/flag.jpg" width="70px" height="70px">
+								}
+								else
 								{
 									<img src="/img/square.jpeg" width="70px" height="70px">
 								}

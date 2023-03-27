@@ -1,6 +1,5 @@
 ﻿using Activity_2_RegisterAndLoginApp.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Milestone.Models;
 using System.Security.Cryptography.X509Certificates;
 
@@ -19,32 +18,31 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
             return View("Index", gameboard);
         }
 
-        public IActionResult ShowWinOrLossMessage()
-        {
-			if (boardService.checkForLose())
-			{
-
-				return View("EndGame");
-
-			}
-			else if (boardService.checkForWin())
-			{
-				return View("Victory");
-			}
-            else
-            {
-				return View("Index", gameboard);
-			}
-		}
         public IActionResult leftClick(int col, int row)
         {
+            if (boardService.checkForLose())
+            {
+               
+               return View("EndGame");
            
-            
+            } 
+            else if (boardService.checkForWin())
+            {
+                return View("Victory");
+            }
+            else
+            {
                 boardService.leftClick(col, row);
+            }
             
+            return View("Index", gameboard);
+        }
 
-            var cell = gameboard.Grid[col, row];
-            return PartialView("_GridCellPartial", cell);
-		}
+        public IActionResult rightClick(int col, int row)
+        {
+            boardService.rightClick(col, row);
+
+            return View("Index", gameboard);
+        }
     }
 }

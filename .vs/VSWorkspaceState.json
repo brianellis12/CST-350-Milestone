@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Controllers",
     "\\Services"
   ],
+  "SelectedNode": "\\Controllers\\GameController.cs",
   "PreviewInSolutionExplorer": false
 }

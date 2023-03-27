@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\Milestone.csproj": {}
+    "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj": {}
   },
   "projects": {
-    "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\Milestone.csproj": {
+    "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\Milestone.csproj",
+        "projectUniqueName": "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj",
         "projectName": "Milestone",
-        "projectPath": "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\Milestone.csproj",
-        "packagesPath": "C:\\Users\\baseb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\baseb\\OneDrive\\Desktop\\CST-350-Milestone\\obj\\",
+        "projectPath": "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj",
+        "packagesPath": "C:\\Users\\ivang\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\baseb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ivang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
