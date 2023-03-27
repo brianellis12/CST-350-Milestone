@@ -26,17 +26,15 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 			if (boardService.checkForLose())
 			{
 
-				return View("EndGame");
+				return PartialView("EndGame");
 
 			}
 			else if (boardService.checkForWin())
 			{
-				return View("Victory");
+				return PartialView("Victory");
 			}
 			else
 			{
-
-				var cell = gameboard.Grid[col, row];
 				return PartialView("_GridCellPartial", gameboard);
 			}
 		}	
@@ -45,8 +43,6 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 		{
 			boardService.rightClick(col, row);
 
-
-			var cell = gameboard.Grid[col, row];
 			return PartialView("_GridCellPartial", gameboard);
 		}
 	}
