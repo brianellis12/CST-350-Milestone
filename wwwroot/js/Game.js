@@ -20,11 +20,11 @@
                 break;
             case 3:
                 event.preventDefault();
-                var col = $(this)[0].form[0].value;
-                var row = $(this)[0].form[1].value;
+                var col = $(this).data("col");
+                var row = $(this).data("row");
 
                 console.log("cell at col and row " + col + " " + row + " was right clicked");
-                doFlag(col, row);
+                doCellUpdate(col, row, '/game/rightClick');
         }
     })
 })
@@ -43,29 +43,3 @@ function doCellUpdate(col, row, urlString) {
         }
     });
 };
-
-function checkForWin() {
-    $.ajax({
-        type: 'json',
-        method: 'POST',
-        url: 'game/ShowWinOrLossMessage',
-        success: function (data) {
-            
-        }
-    });
-};
-
-function doFlag(col, row) {
-    $.ajax({
-        datatype: "json",
-        method: "post",
-        url: "/game/rightClick",
-        data: {
-            "col": col,
-            "row": row
-        },
-        success: function (data) {
-            $("#board").html(data);
-        }
-     })
-}
