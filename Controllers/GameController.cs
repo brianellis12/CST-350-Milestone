@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Milestone.Models;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Activity_2_RegisterAndLoginApp.Controllers
+namespace Milestone.Controllers
 {
     public class GameController : Controller
     {
@@ -18,6 +18,11 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
             return View("Index", gameboard);
         }
 
+		public IActionResult Play()
+		{
+			return View("Play");
+		}
+
 		public IActionResult leftClick(int col, int row)
 		{
 
@@ -26,17 +31,15 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 			if (boardService.checkForLose())
 			{
 
-				return View("EndGame");
+				return PartialView("EndGame");
 
 			}
 			else if (boardService.checkForWin())
 			{
-				return View("Victory");
+				return PartialView("Victory");
 			}
 			else
 			{
-
-				var cell = gameboard.Grid[col, row];
 				return PartialView("_GridCellPartial", gameboard);
 			}
 		}	
@@ -45,8 +48,6 @@ namespace Activity_2_RegisterAndLoginApp.Controllers
 		{
 			boardService.rightClick(col, row);
 
-
-			var cell = gameboard.Grid[col, row];
 			return PartialView("_GridCellPartial", gameboard);
 		}
 	}
