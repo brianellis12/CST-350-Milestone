@@ -1,35 +1,56 @@
 ﻿@model Milestone.Models.Board
-<table>
-	@for (var i = 0; i < Model.Size; i++)
-	{
-		<tr>
-			@for (var j = 0; j < Model.Size; j++)
-			{
-				<td>
-					<form>
-						<input name="col" value="@Model.Grid[i,j].Row" hidden>
-						<input name="row" value="@Model.Grid[i,j].Col" hidden>
-						<div class="oneCell" id=@i@j>
-							<button class="game-cell" type="submit" asp-controller="Game" asp-action="leftClick" data-col="@Model.Grid[i,j].Row" data-row="@Model.Grid[i,j].Col">
-								@if (Model.Grid[i, j].IsVisited == true)
-								{
-									<img src="/img/visitedSquare.png" width="70px" height="70px">
-								}
-								else if (Model.Grid[i, j].IsFlagged == true)
-								{
-									<img src="/img/flag.jpg" width="70px" height="70px">
-								}
-								else
-								{
-									<img src="/img/square.jpeg" width="70px" height="70px">
-								}
-
-							</button>
-						</div>
-					</form>
-
-				</td>
-			}
-		</tr>
+<style>
+	.liveNeighbors {
+		position: absolute;
+		top: 2px;
 	}
-</table>
+</style>
+<div class="row">
+	<div class="col">
+	<table>
+		@for (var i = 0; i < Model.Size; i++)
+		{
+			<tr>
+				@for (var j = 0; j < Model.Size; j++)
+				{
+					<td>
+						<form>
+							<input name="col" value="@Model.Grid[i,j].Row" hidden>
+							<input name="row" value="@Model.Grid[i,j].Col" hidden>
+							<div class="oneCell" id=@i@j>
+								<button class="game-cell" type="submit" asp-controller="Game" asp-action="leftClick" data-col="@Model.Grid[i,j].Row" data-row="@Model.Grid[i,j].Col">
+									@if (Model.Grid[i, j].IsVisited == true)
+									{
+										<img src="/img/visitedSquare.png" width="70px" height="70px">
+											@if(Model.Grid[i,j].LiveNeighbors > 0)
+											{
+												<h4 class="liveNeighbors text-white">@Model.Grid[i,j].LiveNeighbors</h4>
+											}
+											
+									}
+									else if (Model.Grid[i, j].IsFlagged == true)
+									{
+										<img src="/img/flag.jpg" width="70px" height="70px">
+									}
+									else
+									{
+										<img src="/img/square.jpeg" width="70px" height="70px">
+									}
+
+								</button>
+							</div>
+						</form>
+
+					</td>
+				}
+			</tr>
+		}
+	</table>
+	</div>
+
+	<div class="col saveButton">
+		<form>
+			<button type="submit" class="btn btn-primary" asp-controller="Game" asp-action="serialize">Save Game</button>
+		</form>
+	</div>
+</div>

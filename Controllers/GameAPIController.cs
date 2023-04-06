@@ -22,7 +22,7 @@ namespace Milestone.Controllers
 			return gamesDTO;
 		}
 
-		[HttpGet("/{id}")]
+		[HttpGet("showOneGame/{id}")]
 		public ActionResult<GameModelDTO> showOneSavedGame(int id)
 		{
 			GameModel game = repository.getOneGame(id);

@@ -9343,19 +9343,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ivang\\.nuget\\packages\\": {}
+    "C:\\Users\\ivangudino\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ivang\\Downloads\\CST-350-MilestoneUpdated\\CST-350-Milestone-main\\Milestone.csproj",
+      "projectUniqueName": "\\\\Mac\\Home\\Desktop\\CST-350-Milestone-Testing\\Milestone.csproj",
       "projectName": "Milestone",
-      "projectPath": "C:\\Users\\ivang\\Downloads\\CST-350-MilestoneUpdated\\CST-350-Milestone-main\\Milestone.csproj",
-      "packagesPath": "C:\\Users\\ivang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ivang\\Downloads\\CST-350-MilestoneUpdated\\CST-350-Milestone-main\\obj\\",
+      "projectPath": "\\\\Mac\\Home\\Desktop\\CST-350-Milestone-Testing\\Milestone.csproj",
+      "packagesPath": "C:\\Users\\ivangudino\\.nuget\\packages\\",
+      "outputPath": "\\\\Mac\\Home\\Desktop\\CST-350-Milestone-Testing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ivang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ivangudino\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

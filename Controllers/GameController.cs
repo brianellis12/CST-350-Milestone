@@ -18,9 +18,11 @@ namespace Milestone.Controllers
             return View("Index", gameboard);
         }
 
-		public IActionResult Play()
+		public IActionResult serialize()
 		{
-			return View("Play");
+			boardService.serializeData(gameboard);
+
+			return PartialView("_GridCellPartial", gameboard);
 		}
 
 		public IActionResult leftClick(int col, int row)

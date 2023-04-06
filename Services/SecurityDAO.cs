@@ -5,7 +5,7 @@ namespace Milestone.Services
 {
     public class SecurityDAO
     {
-        string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Milestone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string connectionString = "Data Source=np:\\\\.\\pipe\\LOCALDB#F74C08A6\\tsql\\query;Initial Catalog=Milestone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
         public bool FindUserByNameAndPassword(UserModel user)

@@ -16,6 +16,44 @@ namespace Activity_2_RegisterAndLoginApp.Services
             gameBoard = board;
         }
 
+        public void serializeData(Board gameboard)
+        {
+            string data = "";
+
+            for(int i = 0; i < gameboard.Size; i++)
+            {
+                for(int j = 0; j < gameboard.Size; j++)
+                {
+                    if (gameboard.Grid[i,j].IsVisited == true)
+                    {
+                        data += "V0";
+                    } else
+                    {
+                        data += "V1";
+                    }
+					if (gameboard.Grid[i, j].IsLive == true)
+					{
+						data += "L0";
+					}
+					else
+					{
+						data += "L1";
+					}
+					if (gameboard.Grid[i, j].IsFlagged == true)
+					{
+						data += "F0";
+					}
+					else
+					{
+						data += "F1";
+					}
+
+                    data += "&";
+				}
+            }
+            Console.WriteLine(data);
+        }
+        
         public void setupBombs()
         {
             // Random number generator for calculating bomb placement
