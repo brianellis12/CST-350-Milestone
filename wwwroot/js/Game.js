@@ -29,11 +29,11 @@
     })
 })
 
-function doCellUpdate(col, row, urlString) {
+function doCellUpdate(col, row, urlstring) {
     $.ajax({
         datatype: "json",
         method: 'POST',
-        url: urlString,
+        url: urlstring,
         data: {
             "col": col,
             "row": row

@@ -18,7 +18,7 @@ namespace Milestone.Controllers
 		{
 			List<GameModel> games = repository.getGames();
 
-			IEnumerable<GameModelDTO> gamesDTO = from g in games select new GameModelDTO(g.userId, g.date, g.gameData);
+			IEnumerable<GameModelDTO> gamesDTO = from g in games select new GameModelDTO(g.id, g.userId, g.date, g.gameData);
 			return gamesDTO;
 		}
 
@@ -27,7 +27,7 @@ namespace Milestone.Controllers
 		{
 			GameModel game = repository.getOneGame(id);
 
-			GameModelDTO gameModelDTO= new GameModelDTO(game.userId, game.date, game.gameData);
+			GameModelDTO gameModelDTO= new GameModelDTO(game.id, game.userId, game.date, game.gameData);
 			return gameModelDTO;
 		}
 
@@ -35,6 +35,12 @@ namespace Milestone.Controllers
 		public ActionResult <Boolean> deleteSavedGame(int id)
 		{
 			return repository.deleteGame(id);
+		}
+
+		[HttpPost("savegame")] 
+		public ActionResult<Boolean> saveGame([FromBody] GameModelDTO gameDTO) { 
+			GameModel game = new GameModel(gameDTO.id, gameDTO.userId, gameDTO.date, gameDTO.gameData); 
+			return repository.saveGame(game); 
 		}
 	}
 }

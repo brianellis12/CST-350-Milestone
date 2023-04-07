@@ -42,7 +42,7 @@ namespace Milestone.Models
             IsLive = false; 
         }
 
-        public override string ToString()
+        public override string Tostring()
         {
             return "R=" + Row + " C=" + Col + " Flag=" + IsFlagged + " Visit=" + IsVisited + " N=" + LiveNeighbors + " L=" + IsLive; 
         }

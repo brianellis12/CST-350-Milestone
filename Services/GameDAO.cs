@@ -1,13 +1,14 @@
 ﻿
 using Activity_2_RegisterAndLoginApp.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Milestone.Models
 {
 	public class GameDAO
 	{
-		string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Milestone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+		string connectionstring = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Milestone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 		public List<GameModel> getGames()
 		{
@@ -15,7 +16,7 @@ namespace Milestone.Models
 
 			string sqlStatment = "SELECT * FROM dbo.Games";
 
-			using(SqlConnection connection = new SqlConnection(connectionString))
+			using(SqlConnection connection = new SqlConnection(connectionstring))
 			{
 				SqlCommand command = new SqlCommand(sqlStatment, connection);
 				try
@@ -25,7 +26,7 @@ namespace Milestone.Models
 
 					while (reader.Read())
 					{
-						games.Add(new GameModel((int)reader[0], (DateTime)reader[1], (string)reader[2]));
+						games.Add(new GameModel((int)reader[0], (int)reader[1], (DateTime)reader[2], (string)reader[3]));
 					}
 				}
 				catch (Exception ex)
@@ -40,19 +41,21 @@ namespace Milestone.Models
 		public GameModel getOneGame(int id)
 		{
 			GameModel gameModel = null;
-			string sqlStatment = "SELECT * FROM dbo.Games";
+			string sqlStatment = "SELECT * FROM dbo.Games WHERE Id = @Id";
 
-			using (SqlConnection connection = new SqlConnection(connectionString))
+			using (SqlConnection connection = new SqlConnection(connectionstring))
 			{
 				SqlCommand command = new SqlCommand(sqlStatment, connection);
+				command.Parameters.AddWithValue("@Id", id);
+				
 				try
 				{
 					connection.Open();
 					SqlDataReader reader = command.ExecuteReader();
-
+					
 					while (reader.Read())
 					{
-						gameModel = new GameModel((int)reader[0], (DateTime)reader[1], (string)reader[2]);
+						gameModel = new GameModel((int)reader[0], (int)reader[1], (DateTime)reader[2], (string)reader[3]);
 					}
 				}
 				catch (Exception ex)
@@ -66,9 +69,7 @@ namespace Milestone.Models
 
 		public bool deleteGame(int id)
 		{
-			string sqlStatment = "SELECT * FROM dbo.Games";
-
-			using (SqlConnection connection = new SqlConnection((string)connectionString))
+			using (SqlConnection connection = new SqlConnection((string)connectionstring))
 			{
 				string query = "DELETE FROM dbo.Games WHERE Id = @Id";
 
@@ -83,6 +84,27 @@ namespace Milestone.Models
 				catch (Exception ex) { Console.WriteLine(ex.Message); }
 			}
 			return true;
+		}
+
+		public bool saveGame(GameModel game)
+		{
+			using (SqlConnection connection = new SqlConnection(connectionstring))
+			{
+				string query = "INSERT INTO dbo.Games(UserId, Date, GameData) VALUES(@UserId, @Date, @GameData)";
+
+				SqlCommand myCommand = new SqlCommand(query, connection);
+				myCommand.Parameters.AddWithValue("@UserId", game.userId);
+				myCommand.Parameters.AddWithValue("@Date", game.date);
+				myCommand.Parameters.AddWithValue("@GameData", game.gameData);
+
+				try
+				{
+					connection.Open();
+				}
+				catch (Exception ex) { Console.WriteLine(ex.Message); };
+
+				return true;
+			}
 		}
 	}
 }

@@ -17,11 +17,13 @@ namespace Milestone.Controllers
 
             if(securityService.IsValid(user))
             {
-                return RedirectToAction("Index", "game");
+				HttpContext.Session.SetString("username", user.UserName);
+				return RedirectToAction("Index", "game");
             }
             else
             {
-                return View("LoginFailure", user);
+				HttpContext.Session.Remove("username");
+				return View("LoginFailure", user);
             }
         }
     }
