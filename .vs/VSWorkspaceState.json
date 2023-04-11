@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Controllers",
-    "\\Services"
+    "\\Services",
+    "\\Views",
+    "\\Views\\Game",
+    "\\wwwroot",
+    "\\wwwroot\\js"
   ],
-  "SelectedNode": "\\Controllers\\GameController.cs",
+  "SelectedNode": "\\Services\\GameDAO.cs",
   "PreviewInSolutionExplorer": false
 }

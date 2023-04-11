@@ -32,12 +32,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxWaWN0b3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/CST-350-Milestone/Views/Game/viewGames.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVx2aWV3R2FtZXMuY3NodG1s
+[C:/CST-350-Milestone/Views/Game/ViewGames.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxWaWV3R2FtZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/CST-350-Milestone/Views/Game/_GridCellPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxfR3JpZENlbGxQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CST-350-Milestone/Views/Game/_SaveGamePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxfU2F2ZUdhbWVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/CST-350-Milestone/Views/Home/Index.cshtml]

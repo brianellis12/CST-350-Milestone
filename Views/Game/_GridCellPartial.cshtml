@@ -47,10 +47,17 @@
 		}
 	</table>
 	</div>
-
-	<div class="col saveButton">
+	<div class="col">
 		<form>
-			<button type="submit" class="btn btn-primary" asp-controller="Game" asp-action="serialize">Save Game</button>
+			<button type="submit" class="btn btn-primary" id="save-button" asp-controller="Game" asp-action="saveGame">Save Game</button>
+		</form>
+		<div class="col" id="save-message">
+			<p></p>
+		</div>
+	</div>
+	<div class="col viewGamesButton">
+		<form>
+			<button type="submit" class="btn btn-primary" asp-controller="Game" asp-action="viewGames">View Games</button>
 		</form>
 	</div>
 </div>

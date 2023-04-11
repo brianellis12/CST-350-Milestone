@@ -26,13 +26,24 @@ namespace Milestone.Controllers
 			string username = HttpContext.Session.GetString("username") ?? ""; 			
 			saveGameService.saveGame(username, gameboard);
 
-			return PartialView("_GridCellPartial", gameboard);
+			return PartialView("_SaveGamePartial");
 		}
 
 		public IActionResult viewGames()
 		{
-			string username = HttpContext.Session.GetString("username") ?? "";
-			List<GameModel> games = saveGameService.getUserGames(username);
+			//string username = HttpContext.Session.GetString("username") ?? "";
+			//List<GameModel> games = saveGameService.getUserGames(username);
+			
+			// Testing data to be removed
+			List<GameModel> games = new List<GameModel>();
+
+			games.Add(new GameModel(1, 10, new DateTime(2023, 1, 15), "Some game data for user 10"));
+			games.Add(new GameModel(2, 11, new DateTime(2023, 1, 16), "Some game data for user 11"));
+			games.Add(new GameModel(3, 12, new DateTime(2023, 1, 17), "Some game data for user 12"));
+			games.Add(new GameModel(4, 13, new DateTime(2023, 1, 18), "Some game data for user 13"));
+			games.Add(new GameModel(5, 14, new DateTime(2023, 1, 19), "Some game data for user 14"));
+
+
 			return View("ViewGames", games);
 		}
 

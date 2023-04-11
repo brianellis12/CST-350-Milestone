@@ -27,6 +27,17 @@
                 doCellUpdate(col, row, '/game/rightClick');
         }
     })
+
+    $("#save-button").on("click", function (event) {
+        $.ajax({
+            datatype: "json",
+            method: 'POST',
+            url: '/game/saveGame',
+            success: function (data) {
+                $("#save-message").html(data);
+            }
+        });
+    }
 })
 
 function doCellUpdate(col, row, urlstring) {
