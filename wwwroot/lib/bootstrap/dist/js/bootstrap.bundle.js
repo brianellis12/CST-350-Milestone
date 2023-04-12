@@ -24,7 +24,7 @@
       return `${obj}`;
     }
 
-    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+    return {}.tostring.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
   };
   /**
    * --------------------------------------------------------------------------
@@ -930,7 +930,7 @@
       return false;
     }
 
-    if (val === Number(val).toString()) {
+    if (val === Number(val).tostring()) {
       return Number(val);
     }
 
@@ -1963,7 +1963,7 @@
       return window;
     }
 
-    if (node.toString() !== '[object Window]') {
+    if (node.tostring() !== '[object Window]') {
       var ownerDocument = node.ownerDocument;
       return ownerDocument ? ownerDocument.defaultView || window : window;
     }
@@ -5256,7 +5256,7 @@
     }
 
     const domParser = new window.DOMParser();
-    const createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
+    const createdDocument = domParser.parseFromstring(unsafeHtml, 'text/html');
     const allowlistKeys = Object.keys(allowList);
     const elements = [].concat(...createdDocument.body.querySelectorAll('*'));
 
@@ -5893,11 +5893,11 @@
       }
 
       if (typeof config.title === 'number') {
-        config.title = config.title.toString();
+        config.title = config.title.tostring();
       }
 
       if (typeof config.content === 'number') {
-        config.content = config.content.toString();
+        config.content = config.content.tostring();
       }
 
       typeCheckConfig(NAME$4, config, this.constructor.DefaultType);

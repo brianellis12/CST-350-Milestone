@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Activity_2_RegisterAndLoginApp.Models.GameModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gameData)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gameData)
+            </td>
+                <td>
+                    <button type="button" onclick="location.href='@Url.Action("loadGame", "Game", new { id = item.id })'">Load Game</button>
+                    <button type="button" onclick="location.href='@Url.Action("deleteGame", "Game", new { id = item.id })'">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

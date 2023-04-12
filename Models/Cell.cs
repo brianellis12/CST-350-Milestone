@@ -15,6 +15,8 @@ namespace Milestone.Models
         public bool IsFlagged { get; set; }
         public bool IsLive { get; set; }
 
+        
+
         // default constructor.
         // this.property is optional in c#.
         public Cell()

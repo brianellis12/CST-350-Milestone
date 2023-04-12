@@ -27,13 +27,18 @@
                 doCellUpdate(col, row, '/game/rightClick');
         }
     })
-})
 
-function doCellUpdate(col, row, urlString) {
+    $("#save-button").on("click", function (event) {
+        doSaveGame();
+    });
+});
+
+
+function doCellUpdate(col, row, urlstring) {
     $.ajax({
         datatype: "json",
         method: 'POST',
-        url: urlString,
+        url: urlstring,
         data: {
             "col": col,
             "row": row
@@ -43,3 +48,14 @@ function doCellUpdate(col, row, urlString) {
         }
     });
 };
+
+function doSaveGame() {
+    $.ajax({
+        datatype: "json",
+        method: 'POST',
+        url: '/game/saveGame',
+        success: function (data) {
+            $("#save-message").html(data);
+        }
+    });
+}

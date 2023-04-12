@@ -1,20 +1,48 @@
-﻿using Milestone.Models;
+﻿using Activity_2_RegisterAndLoginApp.Models;
+using Milestone.Models;
 using System.Data.SqlClient;
 
 namespace Milestone.Services
 {
     public class SecurityDAO
     {
-        string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Milestone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string connectionstring = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Milestone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
+        public int getUserIdByUsername(string username)
+        {
+			string sqlStatement = "SELECT Id FROM dbo.Users WHERE username = @username";
 
+            int userId = -1;
+            using (SqlConnection connection = new SqlConnection(connectionstring))
+			{
+				SqlCommand command = new SqlCommand(sqlStatement, connection);
+
+				command.Parameters.Add("@USERNAME", System.Data.SqlDbType.VarChar, 50).Value = username;
+
+				try
+				{
+					connection.Open();
+					SqlDataReader reader = command.ExecuteReader();
+
+					while (reader.Read())
+					{
+						userId = (int)reader[0];
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.Message);
+				}
+			}
+			return userId;
+		}
         public bool FindUserByNameAndPassword(UserModel user)
         {
             bool success = false;
 
             string sqlStatement = "SELECT * FROM dbo.Users WHERE username = @username and password = @password";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
 
@@ -44,7 +72,7 @@ namespace Milestone.Services
         {
             string sqlStatement = "INSERT INTO dbo.Users (FirstName, LastName, Sex, Age, Email, Username, Password, State) VALUES (@FirstName, @LastName, @Sex, @Age, @Email, @Username, @Password, @State)";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
 
