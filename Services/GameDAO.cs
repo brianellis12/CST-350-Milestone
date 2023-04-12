@@ -90,7 +90,7 @@ namespace Milestone.Models
 		{
 			using (SqlConnection connection = new SqlConnection(connectionstring))
 			{
-				string query = "INSERT INTO dbo.Games(UserId, Date, GameData) VALUES(@UserId, @Date, @GameData)";
+				string query = "INSERT INTO dbo.Games(userId, date, gameData) VALUES (@UserId, @Date, @GameData)";
 
 				SqlCommand myCommand = new SqlCommand(query, connection);
 				myCommand.Parameters.AddWithValue("@UserId", game.userId);
@@ -100,6 +100,7 @@ namespace Milestone.Models
 				try
 				{
 					connection.Open();
+					SqlDataReader reader = myCommand.ExecuteReader();
 				}
 				catch (Exception ex) { Console.WriteLine(ex.Message); };
 

@@ -29,7 +29,18 @@
     })
 
     $("#save-button").on("click", function (event) {
+        event.preventDefault();
         doSaveGame();
+    });
+
+    $("#load-button").on("click", function (event) {
+        event.preventDefault();
+        doLoadGame($("#loadId").val());
+    });
+
+    $("#view-button").on("click", function (event) {
+        event.preventDefault();
+        doViewGames();
     });
 });
 
@@ -56,6 +67,31 @@ function doSaveGame() {
         url: '/game/saveGame',
         success: function (data) {
             $("#save-message").html(data);
+        }
+    });
+}
+
+function doViewGames() {
+    $.ajax({
+        datatype: "json",
+        method: 'POST',
+        url: '/game/viewGames',
+        success: function (data) {
+            $("#board").html(data);
+        }
+    });
+}
+
+function doLoadGame(id) {
+    $.ajax({
+        datatype: "json",
+        method: 'POST',
+        url: '/game/loadGame',
+        data: {
+            "id": id
+            },
+        success: function (data) {
+            $("#board").html(data);
         }
     });
 }

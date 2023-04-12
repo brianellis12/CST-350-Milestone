@@ -55,7 +55,16 @@ namespace Milestone.Models
             this.Size = size;
             // default difficulty is set to 0.1
             this.Difficulty = 0.1f;
-        }
+
+			Grid = new Cell[Size, Size];
+			for (int row = 0; row < Size; row++)
+			{
+				for (int col = 0; col < size; col++)
+				{
+					Grid[row, col] = new Cell(row, col);
+				}
+			}
+		}
 
         public Board(float diff)
         {

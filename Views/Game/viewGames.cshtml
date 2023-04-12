@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Activity_2_RegisterAndLoginApp.Models.GameModel>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script src="/js/Game.js"></script>
 <table class="table">
     <thead>
         <tr>
@@ -8,9 +9,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.gameData)
             </th>
             <th></th>
         </tr>
@@ -24,12 +22,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.date)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gameData)
-            </td>
                 <td>
-                    <button type="button" onclick="location.href='@Url.Action("loadGame", "Game", new { id = item.id })'">Load Game</button>
-                    <button type="button" onclick="location.href='@Url.Action("deleteGame", "Game", new { id = item.id })'">Delete</button>
+                    <form>
+                        <input name="id" id="loadId" value="@item.id" hidden/>
+                        <button type="button" class="btn btn-primary" id="load-button">Load Game</button>
+                    </form>
+                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("deleteGame", "Game", new { id = item.id })'">Delete</button>
                 </td>
             </tr>
         }

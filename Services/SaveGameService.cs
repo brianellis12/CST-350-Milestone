@@ -101,8 +101,8 @@ namespace Activity_2_RegisterAndLoginApp.Services
 
 		public Board deserialize(string data)
 		{
-			Board gameboard = new Board(data.Length / 2);
 			List<string> saveCells = data.Split('&').ToList();
+			Board gameboard = new Board((int)Math.Sqrt(saveCells.Count - 1));
 
 			for (int i = 0; i < gameboard.Size; i++)
 			{

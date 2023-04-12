@@ -38,7 +38,7 @@ namespace Milestone.Controllers
 		}
 
 		[HttpPost("saveGame")] 
-		public ActionResult<Boolean> saveGame([FromBody] GameModelDTO gameDTO) { 
+		public ActionResult<Boolean> saveGame([FromBody] GameModelDTO gameDTO) {
 			GameModel game = new GameModel(gameDTO.id, gameDTO.userId, gameDTO.date, gameDTO.gameData); 
 			return repository.saveGame(game); 
 		}

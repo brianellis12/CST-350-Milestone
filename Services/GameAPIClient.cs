@@ -1,5 +1,6 @@
 ﻿using Milestone.Models;
 using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text;
 
 namespace Activity_2_RegisterAndLoginApp.Services
@@ -10,6 +11,7 @@ namespace Activity_2_RegisterAndLoginApp.Services
 		public GameAPIClient(HttpClient client)
 		{
 			_client = client;
+			_client.BaseAddress = new Uri("https://localhost:7229/");
 		}
 
 		public async Task<List<GameModelDTO>> GetGamesAsync()
