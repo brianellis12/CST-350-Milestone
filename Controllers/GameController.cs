@@ -13,7 +13,7 @@ namespace Milestone.Controllers
 		public static SaveGameService saveGameService;
         public IActionResult Index()
         {
-            gameboard = new Board(10, .21f);
+            gameboard = new Board(10, .1f);
             boardService = new GameBoardService(gameboard);
             boardService.setupBombs();
             boardService.CalcLiveNeighbors();
@@ -45,7 +45,8 @@ namespace Milestone.Controllers
 			GameModel game = saveGameService.getGameById(id);
 
 			gameboard = saveGameService.deserialize(game.gameData);
-
+			boardService = new GameBoardService(gameboard);
+			boardService.CalcLiveNeighbors();
 			return PartialView("_GridCellPartial", gameboard);
 		}
 

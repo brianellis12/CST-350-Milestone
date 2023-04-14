@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<Activity_2_RegisterAndLoginApp.Models.GameModel>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script src="/js/Game.js"></script>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.userId)
+                @Html.DisplayNameFor(model => model.id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.date)
@@ -17,17 +15,20 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.userId)
+                @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.date)
             </td>
                 <td>
                     <form>
-                        <input name="id" id="loadId" value="@item.id" hidden/>
-                        <button type="button" class="btn btn-primary" id="load-button">Load Game</button>
+                        <input name="id" value="@item.id" hidden/>
+                        <button type="submit" class="btn btn-primary load-btn" data-id="@item.id" id="load-button">Load Game</button>
                     </form>
-                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("deleteGame", "Game", new { id = item.id })'">Delete</button>
+                    <form>
+                        <input name="id" value="@item.id" hidden />
+                        <button type="button" class="btn btn-primary delete-btn" data-id="@item.id">Delete</button>
+                    </form>
                 </td>
             </tr>
         }

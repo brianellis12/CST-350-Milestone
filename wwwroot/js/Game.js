@@ -8,10 +8,9 @@
         switch (event.which) {
             case 1:
                 event.preventDefault();
-
                 var col = $(this).data("col");
                 var row = $(this).data("row");
-                console.log("cell at col and row " + col + " " + row + " was left clicked");
+                // console.log("cell at col and row " + col + " " + row + " was left clicked");
 
                 doCellUpdate(col, row, '/game/leftClick');
                 break;
@@ -28,19 +27,26 @@
         }
     })
 
-    $("#save-button").on("click", function (event) {
+    $(document).on("click", ".save-btn", function (event) {
         event.preventDefault();
         doSaveGame();
     });
 
-    $("#load-button").on("click", function (event) {
+    $(document).on("click", ".load-btn", function (event) {
         event.preventDefault();
-        doLoadGame($("#loadId").val());
+        var id = $(this).data("id")
+        doLoadGame(id);
     });
 
-    $("#view-button").on("click", function (event) {
+    $(document).on("click", ".view-btn", function (event) {
         event.preventDefault();
         doViewGames();
+    });
+
+    $(document).on("click", ".delete-btn", function (event) {
+        event.preventDefault();
+        var id = $(this).data("id")
+        doDeleteGame(id);
     });
 });
 
@@ -55,7 +61,7 @@ function doCellUpdate(col, row, urlstring) {
             "row": row
         },
         success: function (data) {
-            $("#board").html(data);
+           $("#board").html(data);
         }
     });
 };
@@ -82,6 +88,20 @@ function doViewGames() {
     });
 }
 
+function doDeleteGame(id) {
+    $.ajax({
+        datatype: "json",
+        method: 'POST',
+        url: '/game/deleteGame',
+        data: {
+            "id": id
+        },
+        success: function (data) {
+            $("#board").html(data);
+        }
+    });
+}
+
 function doLoadGame(id) {
     $.ajax({
         datatype: "json",
@@ -89,7 +109,7 @@ function doLoadGame(id) {
         url: '/game/loadGame',
         data: {
             "id": id
-            },
+        },
         success: function (data) {
             $("#board").html(data);
         }

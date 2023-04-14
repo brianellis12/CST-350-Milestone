@@ -1,5 +1,9 @@
 ﻿@model Milestone.Models.Board
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
 <script src="/js/Game.js"></script>
 <style>
 	button {
@@ -20,7 +24,7 @@
                         <input name="col" value="@Model.Grid[i,j].Row" hidden>
                         <input name="row" value="@Model.Grid[i,j].Col" hidden>
                         <div class="oneCell" id=@i@j>
-                            <button class="game-cell" type="submit" asp-controller="Game" asp-action="leftClick" data-col="@Model.Grid[i,j].Row" data-row="@Model.Grid[i,j].Col">
+                            <button class="game-cell" type="submit" data-col="@Model.Grid[i,j].Row" data-row="@Model.Grid[i,j].Col">
                                 @if (Model.Grid[i, j].IsVisited == true)
 									{
                                 <img src="/img/visitedSquare.png" width="70px" height="70px">
@@ -42,7 +46,7 @@
     </div>
     <div class="col">
         <form>
-            <button type="submit" class="btn btn-primary" id="save-button">Save Game</button>
+            <button type="submit" class="btn btn-primary save-btn" id="save-button">Save Game</button>
         </form>
         <div class="col" id="save-message">
             <p></p>
@@ -50,7 +54,7 @@
     </div>
     <div class="col viewGamesButton">
         <form>
-            <button type="submit" class="btn btn-primary" id="view-button">View Games</button>
+            <button type="submit" class="btn btn-primary view-btn" id="view-button">View Games</button>
         </form>
     </div>
 </div>

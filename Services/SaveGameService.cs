@@ -96,19 +96,22 @@ namespace Activity_2_RegisterAndLoginApp.Services
 					data += "&";
 				}
 			}
+			data = data.Substring(0, data.Length - 1);
 			return data;
 		}
 
-		public Board deserialize(string data)
+        //V1L0F1 V1L1F1 V1L1F1 V0L1F1
+        public Board deserialize(string data)
 		{
+			int counter = -1;
 			List<string> saveCells = data.Split('&').ToList();
-			Board gameboard = new Board((int)Math.Sqrt(saveCells.Count - 1));
+			Board gameboard = new Board((int)Math.Sqrt(saveCells.Count));
 
 			for (int i = 0; i < gameboard.Size; i++)
 			{
 				for (int j = 0; j < gameboard.Size; j++)
 				{
-					string selectedCell = saveCells[j * (i + 1)];
+					string selectedCell = saveCells[++counter];
 					if (selectedCell.Contains("V0"))
 					{
 						gameboard.Grid[i, j].IsVisited = true;

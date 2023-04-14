@@ -1,6 +1,4 @@
 ﻿@model Milestone.Models.Board
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script src="/js/Game.js"></script>
 <style>
 	.game-cell {
 		position: relative;
@@ -58,7 +56,7 @@
 	</div>
 	<div class="col">
 		<form>
-			<button type="submit" class="btn btn-primary" id="save-button">Save Game</button>
+		<button type="submit" class="btn btn-primary save-btn" id="save-button">Save Game</button>
 		</form>
 		<div class="col" id="save-message">
 			<p></p>
@@ -66,7 +64,7 @@
 	</div>
 	<div class="col viewGamesButton">
 		<form>
-			<button type="submit" class="btn btn-primary" id="view-button">View Games</button>
+			<button type="submit" class="btn btn-primary view-btn" id="view-button">View Games</button>
 		</form>
 	</div>
 </div>
