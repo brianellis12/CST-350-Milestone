@@ -4,10 +4,8 @@
     "\\Controllers",
     "\\Services",
     "\\Views",
-    "\\Views\\Game",
-    "\\wwwroot",
-    "\\wwwroot\\js"
+    "\\Views\\Game"
   ],
-  "SelectedNode": "\\Milestone.sln",
+  "SelectedNode": "\\Views\\Game\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

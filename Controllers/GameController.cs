@@ -1,4 +1,5 @@
-﻿using Activity_2_RegisterAndLoginApp.Models;
+﻿using Activity_2_RegisterAndLoginApp.Controllers;
+using Activity_2_RegisterAndLoginApp.Models;
 using Activity_2_RegisterAndLoginApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Milestone.Models;
@@ -11,7 +12,10 @@ namespace Milestone.Controllers
         public static Board gameboard;
         public static GameBoardService boardService;
 		public static SaveGameService saveGameService;
-        public IActionResult Index()
+
+		[HttpGet]
+		[CustomAuthorization]
+		public IActionResult Index()
         {
             gameboard = new Board(10, .1f);
             boardService = new GameBoardService(gameboard);
@@ -21,7 +25,9 @@ namespace Milestone.Controllers
             return View("Index", gameboard);
         }
 
-		public IActionResult saveGame()
+        [HttpGet]
+        [CustomAuthorization]
+        public IActionResult saveGame()
 		{
 			string username = HttpContext.Session.GetString("username") ?? ""; 			
 			saveGameService.saveGame(username, gameboard);
@@ -29,7 +35,9 @@ namespace Milestone.Controllers
 			return PartialView("_SaveGamePartial");
 		}
 
-		public IActionResult viewGames()
+        [HttpGet]
+        [CustomAuthorization]
+        public IActionResult viewGames()
 		{
 			string username = HttpContext.Session.GetString("username") ?? "";
 			List<GameModel> games = saveGameService.getUserGames(username);
@@ -40,7 +48,9 @@ namespace Milestone.Controllers
 			return PartialView("ViewGames", games);
 		}
 
-		public IActionResult loadGame(int id)
+        [HttpGet]
+        [CustomAuthorization]
+        public IActionResult loadGame(int id)
 		{
 			GameModel game = saveGameService.getGameById(id);
 
@@ -50,7 +60,9 @@ namespace Milestone.Controllers
 			return PartialView("_GridCellPartial", gameboard);
 		}
 
-		public IActionResult deleteGame(int id)
+        [HttpGet]
+        [CustomAuthorization]
+        public IActionResult deleteGame(int id)
 		{
 			string username = HttpContext.Session.GetString("username") ?? "";
 			saveGameService.deleteGame(id);
@@ -58,7 +70,9 @@ namespace Milestone.Controllers
 			return PartialView("_GridCellPartial", gameboard);
 		}
 
-		public IActionResult leftClick(int col, int row)
+        [HttpGet]
+        [CustomAuthorization]
+        public IActionResult leftClick(int col, int row)
 		{
 			boardService.leftClick(col, row);
 			if (boardService.checkForLose())
@@ -75,9 +89,11 @@ namespace Milestone.Controllers
 			{
 				return PartialView("_GridCellPartial", gameboard);
 			}
-		}	
+		}
 
-		public IActionResult rightClick(int col, int row)
+        [HttpGet]
+        [CustomAuthorization]
+        public IActionResult rightClick(int col, int row)
 		{
 			boardService.rightClick(col, row);
 
