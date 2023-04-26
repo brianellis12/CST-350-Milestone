@@ -1,6 +1,7 @@
 ﻿using Activity_2_RegisterAndLoginApp.Controllers;
 using Activity_2_RegisterAndLoginApp.Models;
 using Activity_2_RegisterAndLoginApp.Services;
+using Activity_2_RegisterAndLoginApp.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Milestone.Models;
 using System.Security.Cryptography.X509Certificates;
@@ -9,14 +10,29 @@ namespace Milestone.Controllers
 {
     public class GameController : Controller
     {
+        public ILoggers Logger { get; set; }
+
         public static Board gameboard;
         public static GameBoardService boardService;
 		public static SaveGameService saveGameService;
 
+<<<<<<< Updated upstream
 		[HttpGet]
 		[CustomAuthorization]
 		public IActionResult Index()
+=======
+        public GameController(ILoggers loggers)
+>>>>>>> Stashed changes
         {
+            Logger = loggers;
+        }
+
+        [HttpGet]
+		[CustomAuthorization]
+		public IActionResult Index()
+        {
+
+			Logger.Info("Game has been created");
             gameboard = new Board(10, .1f);
             boardService = new GameBoardService(gameboard);
             boardService.setupBombs();
@@ -25,17 +41,26 @@ namespace Milestone.Controllers
             return View("Index", gameboard);
         }
 
+<<<<<<< Updated upstream
         [HttpGet]
+=======
+        [HttpPost]
+>>>>>>> Stashed changes
         [CustomAuthorization]
         public IActionResult saveGame()
 		{
+			Logger.Info("Game has been saved");
 			string username = HttpContext.Session.GetString("username") ?? ""; 			
 			saveGameService.saveGame(username, gameboard);
 
 			return PartialView("_SaveGamePartial");
 		}
 
+<<<<<<< Updated upstream
         [HttpGet]
+=======
+        [HttpPost]
+>>>>>>> Stashed changes
         [CustomAuthorization]
         public IActionResult viewGames()
 		{
@@ -48,10 +73,15 @@ namespace Milestone.Controllers
 			return PartialView("ViewGames", games);
 		}
 
+<<<<<<< Updated upstream
         [HttpGet]
+=======
+        [HttpPost]
+>>>>>>> Stashed changes
         [CustomAuthorization]
         public IActionResult loadGame(int id)
 		{
+			Logger.Info("Game has been loaded");
 			GameModel game = saveGameService.getGameById(id);
 
 			gameboard = saveGameService.deserialize(game.gameData);
@@ -60,7 +90,11 @@ namespace Milestone.Controllers
 			return PartialView("_GridCellPartial", gameboard);
 		}
 
+<<<<<<< Updated upstream
         [HttpGet]
+=======
+        [HttpPost]
+>>>>>>> Stashed changes
         [CustomAuthorization]
         public IActionResult deleteGame(int id)
 		{
@@ -70,7 +104,11 @@ namespace Milestone.Controllers
 			return PartialView("_GridCellPartial", gameboard);
 		}
 
+<<<<<<< Updated upstream
         [HttpGet]
+=======
+        [HttpPost]
+>>>>>>> Stashed changes
         [CustomAuthorization]
         public IActionResult leftClick(int col, int row)
 		{
@@ -91,7 +129,11 @@ namespace Milestone.Controllers
 			}
 		}
 
+<<<<<<< Updated upstream
         [HttpGet]
+=======
+        [HttpPost]
+>>>>>>> Stashed changes
         [CustomAuthorization]
         public IActionResult rightClick(int col, int row)
 		{

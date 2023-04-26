@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\API",
     "\\Controllers",
     "\\Services",
     "\\Views",
     "\\Views\\Game"
   ],
+<<<<<<< Updated upstream
   "SelectedNode": "\\Views\\Game\\Index.cshtml",
+=======
+  "SelectedNode": "\\API\\GameDAO.cs",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

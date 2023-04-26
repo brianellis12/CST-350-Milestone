@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "C:\\CST-350-Milestone\\Milestone.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\CST-350-Milestone\\Milestone.csproj",
         "packagesPath": "C:\\Users\\baseb\\.nuget\\packages\\",
         "outputPath": "C:\\CST-350-Milestone\\obj\\",
+=======
+    "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj",
+        "projectName": "Milestone",
+        "projectPath": "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\Milestone.csproj",
+        "packagesPath": "C:\\Users\\ivang\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ivang\\OneDrive\\Desktop\\CST-350-Milestone-main\\obj\\",
+>>>>>>> Stashed changes
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\baseb\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +54,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.13, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.1.3, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

@@ -1,7 +1,9 @@
 using Activity_2_RegisterAndLoginApp.Services;
+using Activity_2_RegisterAndLoginApp.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddTransient<ILoggers, GameLogger>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();

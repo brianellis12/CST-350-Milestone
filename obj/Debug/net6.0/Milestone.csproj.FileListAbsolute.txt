@@ -1516,3 +1516,6 @@ C:\Users\ivang\Downloads\CST-350-Milestone-Testing\CST-350-Milestone-Testing\obj
 C:\Users\ivang\Downloads\CST-350-Milestone-Testing\CST-350-Milestone-Testing\obj\Debug\net6.0\Milestone.pdb
 C:\Users\ivang\Downloads\CST-350-Milestone-Testing\CST-350-Milestone-Testing\obj\Debug\net6.0\Milestone.genruntimeconfig.cache
 C:\Users\ivang\Downloads\CST-350-Milestone-Testing\CST-350-Milestone-Testing\obj\Debug\net6.0\ref\Milestone.dll
+C:\Users\ivang\OneDrive\Desktop\CST-350-Milestone-main\bin\Debug\net6.0\Nlog.Config
+C:\Users\ivang\OneDrive\Desktop\CST-350-Milestone-main\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ivang\OneDrive\Desktop\CST-350-Milestone-main\bin\Debug\net6.0\NLog.dll
